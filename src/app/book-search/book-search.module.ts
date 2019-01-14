@@ -20,8 +20,10 @@ import { FormsModule } from '@angular/forms';
 import { COMPOSITION_BUFFER_MODE } from '@angular/forms';
 
 import { MatSelectModule } from '@angular/material/select';
+import { HttpClientModule} from '@angular/common/http';
 
-import { HttpClientModule } from "@angular/common/http";
+import { MatTableModule } from '@angular/material';
+import { MatPaginatorModule} from '@angular/material';
 
 @NgModule({
   declarations: [BookSearchMainComponent, DetailBoxComponent, ListBoxComponent, SearchBoxComponent],
@@ -40,7 +42,9 @@ import { HttpClientModule } from "@angular/common/http";
     MatCardModule,
     FormsModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class BookSearchModule { }
