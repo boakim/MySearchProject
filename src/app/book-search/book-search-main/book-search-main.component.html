@@ -1,4 +1,47 @@
+
 <div class="bookSearch-outer">
+  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+    <img class="mr-3" src="assets/images/search-icon.png" alt="" width="48" height="48">
+    <div class="lh-100">
+      <h5 #resultStatus class="mb-0 text-white lh-100">Search Result : {{searchTitle}}</h5>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <mat-form-field>
+      <mat-select placeholder="도서종류"
+                  #bookCategorySelect
+                  [(ngModel)]="selectedValue"
+                  (ngModelChange)="changeValue(bookCategorySelect.value)">
+        <mat-option *ngFor="let category of bookCaterory"
+                    [value]="category.value">
+          {{ category.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button color="primary"
+            (click)="clearCondition()">검색 초기화</button>
+    <button mat-raised-button color="primary"
+            (click)="changeDOM()">DOM 직접 변경</button>
+  </div>
+
+  <div>
+    <app-search-box [bookCategory]="displayCategoryName"
+                    (searchEvent)="changeTitleBar($event)">
+      <p>Content Projection!</p>
+      <p>First Paragraph</p>
+      <p>Second Paragraph</p>
+    </app-search-box>
+  </div>
+  <div>
+    <app-detail-box></app-detail-box>
+  </div>
+  <div>
+    <app-list-box></app-list-box>
+  </div>
+</div>
+
+<!--<div class="bookSearch-outer">
   <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
     <img class="mr-3" src="assets/images/search-icon.png" alt="" width="48" height="48">
     <div class="lh-100">
@@ -26,3 +69,4 @@
     <app-list-box></app-list-box>
   </div>
 </div>
+-->

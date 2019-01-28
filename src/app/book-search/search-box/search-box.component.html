@@ -1,5 +1,28 @@
 <div class="example-container">
-  <mat-toolbar class="search-toolbar-style">Search Keyword : {{keyword}}</mat-toolbar>
+  <mat-toolbar #toolbar class="search-toolbar-style">
+    Search Keyword : {{keyword}}
+    <ng-container *ngIf="_bookCategory != null">
+      ( {{_bookCategory}} )
+    </ng-container>
+  </mat-toolbar>
+  <mat-form-field>
+    <input matInput #inputKeyword placeholder="Search Keyword"
+           [(ngModel)]="keyword" (ngModelChange)="inputChange()">
+  </mat-form-field>
+  <button mat-raised-button color="warn"
+          (click)="setKeyword(inputKeyword.value)">Search!</button>
+  <ng-content></ng-content>
+</div>
+
+
+<!--
+  <div class="example-container">
+  <mat-toolbar class="search-toolbar-style">
+    Search Keyword : {{keyword}}
+    <ng-container *ngIf="bookCategory != null">
+      ( {{bookCategory}} )
+    </ng-container>
+  </mat-toolbar>
   <mat-form-field>
     <input matInput #inputKeyword placeholder="Search Keyword"
            [(ngModel)]="keyword" (ngModelChange)="inputChange()">
@@ -7,3 +30,5 @@
   <button mat-raised-button color="warn"
           (click)="setKeyword(inputKeyword.value)">Search!</button>
 </div>
+-->
+
